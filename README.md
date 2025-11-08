@@ -6,6 +6,6 @@ This project is an online bookstore developed with Django. It allows users to se
 <b>in home page</b>: Show new ,featured and most visited products.we also have a category tab in this page.<br>
 <b>Shopping Cart</b>: Add books to the shopping cart.<br>
 <b>User Account Management</b>: Create and edit user accounts.<br>
-we also have aboutus and contactus page.<br>
+we also have <b>aboutus</b> and <b>contactus</b> page.<br>
 <b>Admin Panel</b>: Manage books, categories, etc.<br>
 
