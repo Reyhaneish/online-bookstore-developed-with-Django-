@@ -1,4 +1,4 @@
-# online-bookstore-developed-with-Django-
+# online-bookstore-developed-with-Django-<br>
 This project is an online bookstore developed with Django. It allows users to search, view, and purchase their desired books.
 Advanced Search: Search books by title and description.
 Book Details Display: Show book information including title, cover image, price.
