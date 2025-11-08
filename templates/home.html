@@ -1,0 +1,206 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+{% block content %}
+<section id="slider"><!--slider-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#slider-carousel" data-slide-to="1"></li>
+                    </ol>
+
+                    <div class="carousel-inner">
+                        {% for slider in sliders %}
+                        <div class="item {{ forloop.first|yesno:"active," }}">
+                            <div class="col-sm-6">
+                                
+                                <a href="#{{ slider.id }}"><h2>{{ slider.title}}</h2></a>
+                                <p>{{ slider.description}} </p>
+{#                                <a href="#" class="btn btn-default get" onclick="event.preventDefault();">توضیحات بیشتر</a>#}
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="{{ slider.image.url }}" class="girl img-responsive" alt="{{ slider.title }}" width="300px"/>
+                                      </div>
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section><!--/slider-->
+
+<section>
+    <div class="container">
+        <div class="row">
+
+            <div class="recommended_items" id="section2"><!--NewProduct_items-->
+                <h2 class="title text-center">پر بازدیدترین محصولات</h2>
+
+                <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                    {% for visit in most_visited %}
+                        <div class="item {% if forloop.first %}active{% endif %}" >
+                            {% for product in visit %}
+                                <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            
+                                           <a href="{{ product.get_absolute_url }}"><img src="{{ product.image.url }}" alt=""/></a> 
+                                            <h2>{{ product.price }} تومان </h2>
+                                            <p>{{ product.title }}</p>
+                                            {% comment %}<p>{{ product.description }}</p>{% endcomment %}
+                                            <a href="#" class="btn btn-default add-to-cart"><i
+                                                    class="fa fa-shopping-cart"></i>افزودن به سبـد خرید</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                        {% endfor %}
+                        
+                        
+                    </div>
+                    <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </div><!--/NewProduct_items-->
+        
+        <div class="recommended_items"><!--NewProduct_items-->
+                <h2 class="title text-center">جدید ترین محصولات</h2>
+
+                <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                    {% for new in latest_products %}
+                        <div class="item {% if forloop.first %}active{% endif %}" >
+                            {% for products in new %}
+                                <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            
+                                            <a href="{{ products.get_absolute_url }}"><img src="{{ products.image.url }}" alt=""/></a>
+                                            <h2>{{ products.price }} تومان </h2>
+                                            <p>{{ products.title }}</p>
+                                            {% comment %}<p>{{ product.description }}</p>{% endcomment %}
+                                            <a href="#" class="btn btn-default add-to-cart"><i
+                                                    class="fa fa-shopping-cart"></i>افزودن به سبـد خرید</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                        {% endfor %}
+                        
+                        
+                    </div>
+                    <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </div><!--/NewProduct_items-->
+
+            <div class="col-sm-12 padding-right">
+                <div class="features_items" id="section1"><!--featured_items-->
+                <h2 class="title text-center">برگزیده ها</h2>
+
+                <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                    {% for fe in featured_products %}
+                        <div class="item {% if forloop.first %}active{% endif %}" >
+                            {% for product in fe %}
+                                <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            
+                                            <a href="{{ product.get_absolute_url }}"><img src="{{ product.image.url }}" alt=""/></a>
+                                            <h2>{{ product.price }} تومان </h2>
+                                            <p>{{ product.title }}</p>
+                                            {% comment %}<p>{{ product.description }}</p>{% endcomment %}
+                                            <a href="#" class="btn btn-default add-to-cart"><i
+                                                    class="fa fa-shopping-cart"></i>افزودن به سبـد خرید</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                        {% endfor %}
+                        
+                        
+                    </div>
+                    <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </div><!--RetailSale_items-->
+
+                <div class="category-tab"><!--category-tab-->
+    <div class="col-sm-12">
+        <ul class="nav nav-tabs">
+            {% for category in categories %}
+                <li class="{% if forloop.first %}active{% endif %}">
+                    <a href="#Tab_{{ category.id }}" data-toggle="tab">{{ category.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="tab-content">
+        {% for category in categories %}
+            <div class="tab-pane fade {% if forloop.first %}active in{% endif %}" id="Tab_{{ category.id }}">
+                {% for product in category.products.all %}
+                    <div class="col-sm-3">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <a href="{{ product.get_absolute_url }}"><img src="{{ product.image.url }}" alt=""/></a>
+                                    <h2>{{ product.price }}تومان </h2>
+                                    <p>{{ product.title }}</p>
+                                    <a href="#" class="btn btn-default add-to-cart">
+                                        <i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</div><!--/category-tab-->
+
+
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}
+

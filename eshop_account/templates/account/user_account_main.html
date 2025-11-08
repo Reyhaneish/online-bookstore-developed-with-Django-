@@ -1,0 +1,26 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load render_partial %}
+{% block content %}
+    <div class="container">
+    <div class="row">
+        <div class="col-md-8">
+             <h2 class="text-center">پنل کاربری</h2>
+                <div class="card">
+                    <div class="card-header">
+                        <h4>اطلاعات کاربر</h4>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>نام کاربری:</strong> {{ user.username }}</p>
+                        <p><strong>ایمیل:</strong> {{ user.email }}</p>
+                        <p><strong>نام:</strong> {{ user.first_name }}</p>
+                        <p><strong>نام خانوادگی:</strong> {{ user.last_name }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/user/edit/" class="btn btn-primary">ویرایش پروفایل</a>
+                    </div>
+                </div>
+        </div>
+        {% render_partial 'eshop_account.views.user_sidebar' %}
+    </div>
+    </div>
+{% endblock %}
